@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Loan Approval Feedback Form</title>
+  <style>
+    /* Basic reset and styling */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: "Urbanist SemiBold", Urbanist;
+      background-color: #121212;
+      color: #e0e0e0;
+      height: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #ffffff;
+      padding: 20px;
+      font-size: 2rem;
+    }
+
+    form {
+      width: 80%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #1f1f1f;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    label {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: #ccc;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      background-color: #333;
+      color: #e0e0e0;
+      border: 1px solid #444;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    select:focus {
+      border-color: #333;
+      outline: none;
+    }
+
+    option {
+      background-color: #333;
+      color: #e0e0e0;
+    }
+
+    button {
+      background-color: #08574a;
+      transition: background-color 0.4s;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #034238;
+    }
+
+    button:active {
+      background-color: #034238;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      form {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<h2>Home Loan Approval Feedback Form</h2>
+<form th:action="@{/feedback}" th:object="${feedback}" method="post">
+  <label>1. The application process for my home loan was straightforward and easy to understand.</label><br>
+  <select th:field="*{question1}">
+    <option value="Best">Best</option>
+    <option value="Good">Good</option>
+    <option value="Neutral">Neutral</option>
+    <option value="No">No</option>
+    <option value="Absolutely Not">Absolutely Not</option>
+  </select><br><br>
+
+  <label>2. The bank’s website was user-friendly for submitting my application.</label><br>
+  <select th:field="*{question2}">
+    <option value="Best">Best</option>
+    <option value="Good">Good</option>
+    <option value="Neutral">Neutral</option>
+    <option value="No">No</option>
+    <option value="Absolutely Not">Absolutely Not</option>
+  </select><br><br>
+
+  <label>3. The bank provided clear and transparent information regarding the required documents and procedures.</label><br>
+  <select th:field="*{question3}">
+    <option value="Best">Best</option>
+    <option value="Good">Good</option>
+    <option value="Neutral">Neutral</option>
+    <option value="No">No</option>
+    <option value="Absolutely Not">Absolutely Not</option>
+  </select><br><br>
+
+  <label>4. Communication from the bank was timely and effective during the approval process.</label><br>
+  <select th:field="*{question4}">
+    <option value="Best">Best</option>
+    <option value="Good">Good</option>
+    <option value="Neutral">Neutral</option>
+    <option value="No">No</option>
+    <option value="Absolutely Not">Absolutely Not</option>
+  </select><br><br>
+
+  <label>5. The loan approval process was easy to track and understand through updates from the bank.</label><br>
+  <select th:field="*{question5}">
+    <option value="Best">Best</option>
+    <option value="Good">Good</option>
+    <option value="Neutral">Neutral</option>
+    <option value="No">No</option>
+    <option value="Absolutely Not">Absolutely Not</option>
+  </select><br><br>
+
+  <label>6. The customer service team was supportive and responsive to my queries.</label><br>
+  <select th:field="*{question6}">
+    <option value="Best">Best</option>
+    <option value="Good">Good</option>
+    <option value="Neutral">Neutral</option>
+    <option value="No">No</option>
+    <option value="Absolutely Not">Absolutely Not</option>
+  </select><br><br>
+
+  <label>7. I felt that my financial situation and needs were well considered during the process.</label><br>
+  <select th:field="*{question7}">
+    <option value="Best">Best</option>
+    <option value="Good">Good</option>
+    <option value="Neutral">Neutral</option>
+    <option value="No">No</option>
+    <option value="Absolutely Not">Absolutely Not</option>
+  </select><br><br>
+
+  <label>8. The time taken to approve my loan was reasonable.</label><br>
+  <select th:field="*{question8}">
+    <option value="Best">Best</option>
+    <option value="Good">Good</option>
+    <option value="Neutral">Neutral</option>
+    <option value="No">No</option>
+    <option value="Absolutely Not">Absolutely Not</option>
+  </select><br><br>
+
+  <label>9. The interest rates and terms offered were competitive compared to other lenders.</label><br>
+  <select th:field="*{question9}">
+    <option value="Best">Best</option>
+    <option value="Good">Good</option>
+    <option value="Neutral">Neutral</option>
+    <option value="No">No</option>
+    <option value="Absolutely Not">Absolutely Not</option>
+  </select><br><br>
+
+  <label>10. I felt confident in the security of my personal and financial information during the application process.</label><br>
+  <select th:field="*{question10}">
+    <option value="Best">Best</option>
+    <option value="Good">Good</option>
+    <option value="Neutral">Neutral</option>
+    <option value="No">No</option>
+    <option value="Absolutely Not">Absolutely Not</option>
+  </select><br><br>
+
+  <label>11. The overall experience of applying for and getting approval for the home loan was satisfactory.</label><br>
+  <select th:field="*{question11}">
+    <option value="Best">Best</option>
+    <option value="Good">Good</option>
+    <option value="Neutral">Neutral</option>
+    <option value="No">No</option>
+    <option value="Absolutely Not">Absolutely Not</option>
+  </select><br><br>
+
+  <label>12. I was satisfied with the final loan amount and repayment terms offered.</label><br>
+  <select th:field="*{question12}">
+    <option value="Best">Best</option>
+    <option value="Good">Good</option>
+    <option value="Neutral">Neutral</option>
+    <option value="No">No</option>
+    <option value="Absolutely Not">Absolutely Not</option>
+  </select><br><br>
+
+  <label>13. I feel that the bank values its customers during the loan approval process.</label><br>
+  <select th:field="*{question13}">
+    <option value="Best">Best</option>
+    <option value="Good">Good</option>
+    <option value="Neutral">Neutral</option>
+    <option value="No">No</option>
+    <option value="Absolutely Not">Absolutely Not</option>
+  </select><br><br>
+
+  <label>14. I am likely to recommend the bank's home loan services to friends or family.</label><br>
+  <select th:field="*{question14}">
+    <option value="Best">Best</option>
+    <option value="Good">Good</option>
+    <option value="Neutral">Neutral</option>
+    <option value="No">No</option>
+    <option value="Absolutely Not">Absolutely Not</option>
+  </select><br><br>
+
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>

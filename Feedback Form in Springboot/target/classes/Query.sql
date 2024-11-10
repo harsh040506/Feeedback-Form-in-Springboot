@@ -1,0 +1,15 @@
+INSERT INTO feedback_question (question_text)VALUES
+    ('The application process for my home loan was straightforward and easy to understand.'),
+    ('The bank’s website was user-friendly for submitting my application.'),
+    ('The bank provided clear and transparent information regarding the required documents and procedures.'),
+    ('Communication from the bank was timely and effective during the approval process.'),
+    ('The loan approval process was easy to track and understand through updates from the bank.'),
+    ('The customer service team was supportive and responsive to my queries.'),
+    ('I felt that my financial situation and needs were well considered during the process.'),
+    ('The time taken to approve my loan was reasonable.'),
+    ('The interest rates and terms offered were competitive compared to other lenders.'),
+    ('I felt confident in the security of my personal and financial information during the application process.'),
+    ('The overall experience of applying for and getting approval for the home loan was satisfactory.'),
+    ('I was satisfied with the final loan amount and repayment terms offered.'),
+    ('I feel that the bank values its customers during the loan approval process.'),
+    ('I am likely to recommend the bank\'s home loan services to friends or family.');
