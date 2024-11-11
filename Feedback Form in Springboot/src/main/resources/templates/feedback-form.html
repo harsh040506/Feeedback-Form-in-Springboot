@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Loan Approval Feedback Form</title>
   <style>
-    /* Basic reset and styling */
     body, html {
       margin: 0;
       padding: 0;
@@ -40,8 +39,8 @@
       color: #ccc;
     }
 
-    select {
-      width: 100%;
+    input[type="number"] {
+      width: 97%;
       padding: 10px;
       margin-bottom: 15px;
       background-color: #333;
@@ -51,14 +50,23 @@
       font-size: 1rem;
     }
 
-    select:focus {
+    input[type="number"]:focus {
       border-color: #333;
       outline: none;
     }
 
-    option {
-      background-color: #333;
-      color: #e0e0e0;
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+
+    .radio-group label {
+      margin-bottom: 5px;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
     }
 
     button {
@@ -82,7 +90,6 @@
       background-color: #034238;
     }
 
-    /* Responsive styling */
     @media (max-width: 600px) {
       h2 {
         font-size: 1.5rem;
@@ -97,132 +104,140 @@
 
 <body>
 <h2>Home Loan Approval Feedback Form</h2>
+<p style="text-align: center; font-size: 1.1rem; color: #b0b0b0; margin-bottom: 15px; line-height: 1.5;">
+  Thank you for taking the time to provide feedback! For each question, select the option that most accurately
+  reflects your experience.<br>
+  Your responses help us improve our service and better meet your needs.
+</p>
 <form th:action="@{/feedback}" th:object="${feedback}" method="post">
+  <label for="form_id">Form ID</label><br>
+  <input type="number" id="form_id" name="form_id" th:field="*{form_id}" required><br><br>
+
   <label>1. The application process for my home loan was straightforward and easy to understand.</label><br>
-  <select th:field="*{question1}">
-    <option value="Best">Best</option>
-    <option value="Good">Good</option>
-    <option value="Neutral">Neutral</option>
-    <option value="No">No</option>
-    <option value="Absolutely Not">Absolutely Not</option>
-  </select><br><br>
+  <div class="radio-group" th:field="*{question1}">
+    <label><input type="radio" name="question1" value="Strongly Agree"> Strongly Agree</label>
+    <label><input type="radio" name="question1" value="Agree"> Agree</label>
+    <label><input type="radio" name="question1" value="Neutral"> Neutral</label>
+    <label><input type="radio" name="question1" value="Disagree"> Disagree</label>
+    <label><input type="radio" name="question1" value="Strongly Disagree"> Strongly Disagree</label>
+  </div>
 
   <label>2. The bank’s website was user-friendly for submitting my application.</label><br>
-  <select th:field="*{question2}">
-    <option value="Best">Best</option>
-    <option value="Good">Good</option>
-    <option value="Neutral">Neutral</option>
-    <option value="No">No</option>
-    <option value="Absolutely Not">Absolutely Not</option>
-  </select><br><br>
+  <div class="radio-group" th:field="*{question2}">
+    <label><input type="radio" name="question2" value="Strongly Agree"> Strongly Agree</label>
+    <label><input type="radio" name="question2" value="Agree"> Agree</label>
+    <label><input type="radio" name="question2" value="Neutral"> Neutral</label>
+    <label><input type="radio" name="question2" value="Disagree"> Disagree</label>
+    <label><input type="radio" name="question2" value="Strongly Disagree"> Strongly Disagree</label>
+  </div>
 
   <label>3. The bank provided clear and transparent information regarding the required documents and procedures.</label><br>
-  <select th:field="*{question3}">
-    <option value="Best">Best</option>
-    <option value="Good">Good</option>
-    <option value="Neutral">Neutral</option>
-    <option value="No">No</option>
-    <option value="Absolutely Not">Absolutely Not</option>
-  </select><br><br>
+  <div class="radio-group" th:field="*{question3}">
+    <label><input type="radio" name="question3" value="Strongly Agree"> Strongly Agree</label>
+    <label><input type="radio" name="question3" value="Agree"> Agree</label>
+    <label><input type="radio" name="question3" value="Neutral"> Neutral</label>
+    <label><input type="radio" name="question3" value="Disagree"> Disagree</label>
+    <label><input type="radio" name="question3" value="Strongly Disagree"> Strongly Disagree</label>
+  </div>
 
   <label>4. Communication from the bank was timely and effective during the approval process.</label><br>
-  <select th:field="*{question4}">
-    <option value="Best">Best</option>
-    <option value="Good">Good</option>
-    <option value="Neutral">Neutral</option>
-    <option value="No">No</option>
-    <option value="Absolutely Not">Absolutely Not</option>
-  </select><br><br>
+  <div class="radio-group" th:field="*{question4}">
+    <label><input type="radio" name="question4" value="Strongly Agree"> Strongly Agree</label>
+    <label><input type="radio" name="question4" value="Agree"> Agree</label>
+    <label><input type="radio" name="question4" value="Neutral"> Neutral</label>
+    <label><input type="radio" name="question4" value="Disagree"> Disagree</label>
+    <label><input type="radio" name="question4" value="Strongly Disagree"> Strongly Disagree</label>
+  </div>
 
   <label>5. The loan approval process was easy to track and understand through updates from the bank.</label><br>
-  <select th:field="*{question5}">
-    <option value="Best">Best</option>
-    <option value="Good">Good</option>
-    <option value="Neutral">Neutral</option>
-    <option value="No">No</option>
-    <option value="Absolutely Not">Absolutely Not</option>
-  </select><br><br>
+  <div class="radio-group" th:field="*{question5}">
+    <label><input type="radio" name="question5" value="Strongly Agree"> Strongly Agree</label>
+    <label><input type="radio" name="question5" value="Agree"> Agree</label>
+    <label><input type="radio" name="question5" value="Neutral"> Neutral</label>
+    <label><input type="radio" name="question5" value="Disagree"> Disagree</label>
+    <label><input type="radio" name="question5" value="Strongly Disagree"> Strongly Disagree</label>
+  </div>
 
   <label>6. The customer service team was supportive and responsive to my queries.</label><br>
-  <select th:field="*{question6}">
-    <option value="Best">Best</option>
-    <option value="Good">Good</option>
-    <option value="Neutral">Neutral</option>
-    <option value="No">No</option>
-    <option value="Absolutely Not">Absolutely Not</option>
-  </select><br><br>
+  <div class="radio-group" th:field="*{question6}">
+    <label><input type="radio" name="question6" value="Strongly Agree"> Strongly Agree</label>
+    <label><input type="radio" name="question6" value="Agree"> Agree</label>
+    <label><input type="radio" name="question6" value="Neutral"> Neutral</label>
+    <label><input type="radio" name="question6" value="Disagree"> Disagree</label>
+    <label><input type="radio" name="question6" value="Strongly Disagree"> Strongly Disagree</label>
+  </div>
 
   <label>7. I felt that my financial situation and needs were well considered during the process.</label><br>
-  <select th:field="*{question7}">
-    <option value="Best">Best</option>
-    <option value="Good">Good</option>
-    <option value="Neutral">Neutral</option>
-    <option value="No">No</option>
-    <option value="Absolutely Not">Absolutely Not</option>
-  </select><br><br>
+  <div class="radio-group" th:field="*{question7}">
+    <label><input type="radio" name="question7" value="Strongly Agree"> Strongly Agree</label>
+    <label><input type="radio" name="question7" value="Agree"> Agree</label>
+    <label><input type="radio" name="question7" value="Neutral"> Neutral</label>
+    <label><input type="radio" name="question7" value="Disagree"> Disagree</label>
+    <label><input type="radio" name="question7" value="Strongly Disagree"> Strongly Disagree</label>
+  </div>
 
   <label>8. The time taken to approve my loan was reasonable.</label><br>
-  <select th:field="*{question8}">
-    <option value="Best">Best</option>
-    <option value="Good">Good</option>
-    <option value="Neutral">Neutral</option>
-    <option value="No">No</option>
-    <option value="Absolutely Not">Absolutely Not</option>
-  </select><br><br>
+  <div class="radio-group" th:field="*{question8}">
+    <label><input type="radio" name="question8" value="Strongly Agree"> Strongly Agree</label>
+    <label><input type="radio" name="question8" value="Agree"> Agree</label>
+    <label><input type="radio" name="question8" value="Neutral"> Neutral</label>
+    <label><input type="radio" name="question8" value="Disagree"> Disagree</label>
+    <label><input type="radio" name="question8" value="Strongly Disagree"> Strongly Disagree</label>
+  </div>
 
   <label>9. The interest rates and terms offered were competitive compared to other lenders.</label><br>
-  <select th:field="*{question9}">
-    <option value="Best">Best</option>
-    <option value="Good">Good</option>
-    <option value="Neutral">Neutral</option>
-    <option value="No">No</option>
-    <option value="Absolutely Not">Absolutely Not</option>
-  </select><br><br>
+  <div class="radio-group" th:field="*{question9}">
+    <label><input type="radio" name="question9" value="Strongly Agree"> Strongly Agree</label>
+    <label><input type="radio" name="question9" value="Agree"> Agree</label>
+    <label><input type="radio" name="question9" value="Neutral"> Neutral</label>
+    <label><input type="radio" name="question9" value="Disagree"> Disagree</label>
+    <label><input type="radio" name="question9" value="Strongly Disagree"> Strongly Disagree</label>
+  </div>
 
-  <label>10. I felt confident in the security of my personal and financial information during the application process.</label><br>
-  <select th:field="*{question10}">
-    <option value="Best">Best</option>
-    <option value="Good">Good</option>
-    <option value="Neutral">Neutral</option>
-    <option value="No">No</option>
-    <option value="Absolutely Not">Absolutely Not</option>
-  </select><br><br>
+  <label>10. I am satisfied with the overall experience of obtaining my home loan from the bank.</label><br>
+  <div class="radio-group" th:field="*{question10}">
+    <label><input type="radio" name="question10" value="Strongly Agree"> Strongly Agree</label>
+    <label><input type="radio" name="question10" value="Agree"> Agree</label>
+    <label><input type="radio" name="question10" value="Neutral"> Neutral</label>
+    <label><input type="radio" name="question10" value="Disagree"> Disagree</label>
+    <label><input type="radio" name="question10" value="Strongly Disagree"> Strongly Disagree</label>
+  </div>
 
-  <label>11. The overall experience of applying for and getting approval for the home loan was satisfactory.</label><br>
-  <select th:field="*{question11}">
-    <option value="Best">Best</option>
-    <option value="Good">Good</option>
-    <option value="Neutral">Neutral</option>
-    <option value="No">No</option>
-    <option value="Absolutely Not">Absolutely Not</option>
-  </select><br><br>
+  <label>11. The bank's digital tools and services met my expectations.</label><br>
+  <div class="radio-group" th:field="*{question11}">
+    <label><input type="radio" name="question11" value="Strongly Agree"> Strongly Agree</label>
+    <label><input type="radio" name="question11" value="Agree"> Agree</label>
+    <label><input type="radio" name="question11" value="Neutral"> Neutral</label>
+    <label><input type="radio" name="question11" value="Disagree"> Disagree</label>
+    <label><input type="radio" name="question11" value="Strongly Disagree"> Strongly Disagree</label>
+  </div>
 
-  <label>12. I was satisfied with the final loan amount and repayment terms offered.</label><br>
-  <select th:field="*{question12}">
-    <option value="Best">Best</option>
-    <option value="Good">Good</option>
-    <option value="Neutral">Neutral</option>
-    <option value="No">No</option>
-    <option value="Absolutely Not">Absolutely Not</option>
-  </select><br><br>
+  <label>12. I would recommend this bank to friends and family for home loans.</label><br>
+  <div class="radio-group" th:field="*{question12}">
+    <label><input type="radio" name="question12" value="Strongly Agree"> Strongly Agree</label>
+    <label><input type="radio" name="question12" value="Agree"> Agree</label>
+    <label><input type="radio" name="question12" value="Neutral"> Neutral</label>
+    <label><input type="radio" name="question12" value="Disagree"> Disagree</label>
+    <label><input type="radio" name="question12" value="Strongly Disagree"> Strongly Disagree</label>
+  </div>
 
-  <label>13. I feel that the bank values its customers during the loan approval process.</label><br>
-  <select th:field="*{question13}">
-    <option value="Best">Best</option>
-    <option value="Good">Good</option>
-    <option value="Neutral">Neutral</option>
-    <option value="No">No</option>
-    <option value="Absolutely Not">Absolutely Not</option>
-  </select><br><br>
+  <label>13. I received clear communication about my loan's terms and conditions.</label><br>
+  <div class="radio-group" th:field="*{question13}">
+    <label><input type="radio" name="question13" value="Strongly Agree"> Strongly Agree</label>
+    <label><input type="radio" name="question13" value="Agree"> Agree</label>
+    <label><input type="radio" name="question13" value="Neutral"> Neutral</label>
+    <label><input type="radio" name="question13" value="Disagree"> Disagree</label>
+    <label><input type="radio" name="question13" value="Strongly Disagree"> Strongly Disagree</label>
+  </div>
 
-  <label>14. I am likely to recommend the bank's home loan services to friends or family.</label><br>
-  <select th:field="*{question14}">
-    <option value="Best">Best</option>
-    <option value="Good">Good</option>
-    <option value="Neutral">Neutral</option>
-    <option value="No">No</option>
-    <option value="Absolutely Not">Absolutely Not</option>
-  </select><br><br>
+  <label>14. The entire loan application process met my expectations.</label><br>
+  <div class="radio-group" th:field="*{question14}">
+    <label><input type="radio" name="question14" value="Strongly Agree"> Strongly Agree</label>
+    <label><input type="radio" name="question14" value="Agree"> Agree</label>
+    <label><input type="radio" name="question14" value="Neutral"> Neutral</label>
+    <label><input type="radio" name="question14" value="Disagree"> Disagree</label>
+    <label><input type="radio" name="question14" value="Strongly Disagree"> Strongly Disagree</label>
+  </div>
 
   <button type="submit">Submit</button>
 </form>
