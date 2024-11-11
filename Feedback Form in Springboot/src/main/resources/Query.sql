@@ -1,4 +1,5 @@
-INSERT INTO feedback_question (question_text)VALUES
+INSERT INTO feedback_question (question_text) VALUES
+    ('Kindly enter your Form_id.'),
     ('The application process for my home loan was straightforward and easy to understand.'),
     ('The bank’s website was user-friendly for submitting my application.'),
     ('The bank provided clear and transparent information regarding the required documents and procedures.'),
